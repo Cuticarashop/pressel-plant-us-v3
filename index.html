@@ -1,228 +1,174 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  :root{
+    --text:#111;
+    --muted:#555;
+    --btn:#2f7d32;
+    --btn-hover:#1b5e20;
+    --shadow:0 8px 20px rgba(0,0,0,.10);
+    --soft:#f7f7f7;
+    --border:#e9e9e9;
+    --maxw:980px;
+    --content:780px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
 
-  <title>Sponsored Information | Advertisement</title>
-  <meta name="description" content="Paid advertisement (sponsored informational content). For informational purposes only. Not medical advice." />
+  body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#fff;
+    color:var(--text);
+    line-height:1.6;
+  }
 
-  <!-- Open Graph / Twitter (ABSOLUTE URLs - BLINDADO) -->
-  <meta property="og:title" content="Sponsored Information | Advertisement" />
-  <meta property="og:description" content="Paid advertisement (sponsored informational content). For informational purposes only. Not medical advice." />
-  <meta property="og:image" content="https://cuticarashop.github.io/pressel-plant-us-v3/assets/plant-based-hero.jpg" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://cuticarashop.github.io/pressel-plant-us-v3/assets/plant-based-hero.jpg" />
+  .topbar{
+    background:#f4f4f4;
+    padding:10px 12px;
+    text-align:center;
+    font-size:13px;
+    border-bottom:1px solid #ddd;
+  }
+  .topbar strong{color:#d32f2f}
 
-  <style>
-    :root{
-      --text:#111;
-      --muted:#555;
-      --btn:#2f7d32;
-      --btn-hover:#1b5e20;
-      --shadow:0 8px 20px rgba(0,0,0,.10);
-      --soft:#f7f7f7;
-      --border:#e9e9e9;
-      --maxw:980px;
-      --content:780px;
+  .sponsored{
+    background:#1f6b2a;
+    color:#fff;
+    text-align:center;
+    font-size:12px;
+    letter-spacing:1px;
+    font-weight:700;
+    padding:6px 0;
+    text-transform:uppercase;
+  }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:18px 15px 28px;
+  }
+
+  .content{
+    max-width:var(--content);
+    margin:0 auto;
+  }
+
+  .disclosure{
+    max-width:var(--content);
+    margin:10px auto 14px;
+    padding:12px 14px;
+    background:var(--soft);
+    border:1px solid var(--border);
+    text-align:center;
+    font-size:14px;
+  }
+  .disclosure .hardline{
+    margin-top:6px;
+    font-size:12px;
+    color:var(--muted);
+  }
+
+  /* 🔥 HERO – CONTROLE REAL */
+  .hero{
+    max-width:var(--content);
+    margin:0 auto 14px;
+    max-height:420px;        /* desktop */
+    overflow:hidden;
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    border:1px solid var(--border);
+  }
+  .hero img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .publisher{
+    margin-top:6px;
+    font-size:12px;
+    color:var(--muted);
+  }
+
+  h1{
+    margin-top:8px;
+    font-size:32px;
+    line-height:1.15;
+  }
+
+  .subtitle{
+    margin-top:10px;
+    color:var(--muted);
+    font-size:15px;
+  }
+
+  p{margin-top:10px;}
+
+  .info{
+    margin-top:16px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:14px;
+    background:#fff;
+  }
+
+  .info h2{font-size:16px;margin-bottom:8px;}
+  .info ul{margin-left:18px;}
+  .info li{margin:4px 0;}
+
+  .cta{
+    margin:18px 0 8px;
+    text-align:center;
+  }
+
+  .cta a{
+    display:inline-block;
+    background:var(--btn);
+    color:#fff;
+    padding:12px 26px;
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:700;
+    box-shadow:var(--shadow);
+    transition:.15s;
+  }
+
+  .cta a:hover{
+    background:var(--btn-hover);
+    transform:translateY(-1px);
+  }
+
+  .cta-note,.cta-disclosure{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:8px;
+  }
+
+  .medical{
+    font-size:13px;
+    margin:18px 0;
+    padding:12px;
+    background:var(--soft);
+    border-radius:10px;
+    border:1px solid var(--border);
+    text-align:center;
+  }
+
+  .footer{
+    margin-top:22px;
+    font-size:13px;
+    color:var(--muted);
+    text-align:center;
+  }
+  .footer a{
+    color:var(--btn);
+    text-decoration:none;
+  }
+
+  /* 📱 MOBILE – AJUSTE DEFINITIVO */
+  @media (max-width:768px){
+    h1{font-size:26px}
+    .wrap{padding:14px 12px 22px}
+    .hero{
+      max-height:260px;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family: Arial, Helvetica, sans-serif;
-      background:#fff;
-      color:var(--text);
-      line-height:1.6;
-    }
-    .topbar{
-      background:#f4f4f4;
-      padding:10px 12px;
-      text-align:center;
-      font-size:13px;
-      border-bottom:1px solid #ddd;
-    }
-    .topbar strong{color:#d32f2f}
-    .sponsored{
-      background:#1f6b2a;
-      color:#fff;
-      text-align:center;
-      font-size:12px;
-      letter-spacing:1px;
-      font-weight:700;
-      padding:6px 0;
-      text-transform:uppercase;
-    }
-    .wrap{
-      max-width:var(--maxw);
-      margin:0 auto;
-      padding:18px 15px 28px;
-    }
-    .content{
-      max-width:var(--content);
-      margin:0 auto;
-    }
-    .disclosure{
-      max-width:var(--content);
-      margin:10px auto 14px;
-      padding:12px 14px;
-      background:var(--soft);
-      border:1px solid var(--border);
-      text-align:center;
-      font-size:14px;
-    }
-    .disclosure .hardline{
-      margin-top:6px;
-      font-size:12px;
-      color:var(--muted);
-    }
-
-    /* HERO IMAGE – AJUSTE PROFISSIONAL */
-    .hero img{
-      width:100%;
-      height:auto;
-      display:block;
-      max-height:420px;      /* desktop */
-      object-fit:cover;
-      border-radius:12px;
-    }
-
-    .publisher{
-      margin-top:6px;
-      font-size:12px;
-      color:var(--muted);
-      text-align:left;
-    }
-    h1{margin-top:8px;font-size:32px;line-height:1.15;}
-    .subtitle{margin-top:10px;color:var(--muted);font-size:15px;}
-    p{margin-top:10px;}
-    .info{
-      margin-top:16px;
-      border:1px solid var(--border);
-      border-radius:10px;
-      padding:14px;
-      background:#fff;
-    }
-    .info h2{font-size:16px;margin-bottom:8px;}
-    .info ul{margin-left:18px;}
-    .info li{margin:4px 0;}
-    .cta{margin:18px 0 8px;text-align:center;}
-    .cta a{
-      display:inline-block;
-      background:var(--btn);
-      color:#fff;
-      padding:12px 26px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:700;
-      box-shadow:var(--shadow);
-      transition:transform .10s ease, background .15s ease;
-    }
-    .cta a:hover{background:var(--btn-hover);transform:translateY(-1px);}
-    .cta-note,.cta-disclosure{
-      font-size:12px;color:var(--muted);margin-top:8px;
-    }
-    .medical{
-      font-size:13px;
-      margin:18px 0;
-      padding:12px;
-      background:var(--soft);
-      border-radius:10px;
-      border:1px solid var(--border);
-      color:#222;
-      text-align:center;
-    }
-    .footer{
-      margin-top:22px;
-      font-size:13px;
-      color:var(--muted);
-      text-align:center;
-    }
-    .footer a{color:var(--btn);text-decoration:none;}
-    .footer a:hover{text-decoration:underline;}
-
-    /* MOBILE – HERO MAIS COMPACTA */
-    @media (max-width:768px){
-      h1{font-size:26px}
-      .wrap{padding:14px 12px 22px}
-      .hero img{
-        max-height:280px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <div class="topbar">
-    <strong>ADVERTISEMENT</strong> • This is paid advertising (sponsored informational content). For informational purposes only. Not medical advice.
-  </div>
-
-  <div class="sponsored">SPONSORED</div>
-
-  <div class="wrap">
-    <div class="disclosure">
-      <b>Disclosure:</b> This page is a PAID ADVERTISEMENT and SPONSORED INFORMATIONAL CONTENT created for informational purposes only. It does not provide medical advice.
-      <div class="hardline">This is advertising content and is not news, editorial, or independent journalism.</div>
-    </div>
-
-    <div class="hero">
-      <img src="assets/plant-based-hero.jpg" alt="Plant ingredient image (illustration)" loading="eager" decoding="async">
-    </div>
-
-    <div class="content">
-      <div class="publisher">Advertiser: <b>Health Insider</b></div>
-
-      <h1>Sponsored Information About a Plant-Based Ingredient</h1>
-
-      <p class="subtitle">
-        This is sponsored advertising content. Learn more on the advertiser’s website.
-      </p>
-
-      <p>
-        People often explore different lifestyle approaches as part of everyday wellness. This page shares general, non-medical information and points to additional resources.
-      </p>
-
-      <div class="info">
-        <h2>What This Page Covers</h2>
-        <ul>
-          <li>General background and context</li>
-          <li>Common ways people discuss wellness routines</li>
-          <li>Where to learn more (external site)</li>
-        </ul>
-      </div>
-
-      <div class="cta">
-        <div class="cta-disclosure"><b>ADVERTISEMENT:</b> Clicking "Learn More" opens the advertiser’s website (sponsored).</div>
-        <a id="ctaLink" href="#" target="_blank" rel="nofollow noopener noreferrer" referrerpolicy="no-referrer">Learn More</a>
-        <div class="cta-note">Individual experiences vary. Consult a qualified professional for personal guidance.</div>
-      </div>
-
-      <div class="medical">
-        This content is for informational purposes only and does not diagnose, treat, cure, or prevent any disease.
-      </div>
-
-      <div class="footer">
-        <a href="privacy.html" rel="nofollow noopener noreferrer">Privacy Policy</a> |
-        <a href="terms.html" rel="nofollow noopener noreferrer">Terms of Use</a> |
-        <a href="contact.html" rel="nofollow noopener noreferrer">Contact</a> |
-        <a href="disclaimer.html" rel="nofollow noopener noreferrer">Disclaimer</a>
-        <div>© Health Insider</div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const HOP_BASE = "https://58073-i2-jw3vl4xtgg32yaz3q.hop.clickbank.net/";
-    const params = new URLSearchParams(window.location.search);
-
-    if (!params.has("traffic_source")) params.set("traffic_source", "revcontent");
-    if (!params.has("traffic_type")) params.set("traffic_type", "native");
-    if (!params.has("campaign")) params.set("campaign", "berberine_us_v3");
-
-    const HOPLINK = HOP_BASE + "?" + params.toString();
-
-    const cta = document.getElementById("ctaLink");
-    if (cta) cta.href = HOPLINK;
-  </script>
-</body>
-</html>
-
+  }
+</style>
